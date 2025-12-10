@@ -114,8 +114,6 @@ project/
 
 ➡️ This structure is the **same** in all Maven projects → makes things easy to understand.
 
-## 📦 Folder-by-Folder Simple Explanation
-
 ### 🗂️ **1. src/main/java/**
 This folder contains **your main application code**.  
 All `.java` files that run your program are placed here.
