@@ -114,7 +114,41 @@ project/
 
 ➡️ This structure is the **same** in all Maven projects → makes things easy to understand.
 
+## 📦 Folder-by-Folder Simple Explanation
+
+### 🗂️ **1. src/main/java/**
+This folder contains **your main application code**.  
+All `.java` files that run your program are placed here.
+
 ---
+
+### ⚙️ **2. src/main/resources/**
+Stores **configuration files** your program needs.  
+Examples:
+- `application.properties`
+- `log4j.properties`
+- JSON/XML config files
+
+---
+
+### 🧪 **3. src/test/java/**
+Contains **test code** written for unit testing your application.  
+Example: JUnit test files.
+
+---
+
+### 🧾 **4. src/test/resources/**
+Stores test-related config or sample data used during testing.
+
+---
+
+### 📄 **5. pom.xml**
+This is the **heart of a Maven project**.  
+It stores:
+- Dependencies (libraries)
+- Plugins
+- Build settings
+- Project information-
 
 ## 🔌 Maven Plugins
 
