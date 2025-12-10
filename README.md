@@ -26,7 +26,10 @@ It removes the need to manually download libraries or write long build scripts.
 ---
 
 ## 📄 POM (Project Object Model)
-`pom.xml` is the **heart of Maven**.  
+`pom.xml` is the **heart of Maven**. 
+pom.xml is the main configuration file used by Maven.
+It tells Maven everything about your project and how to build it.
+
 It contains:
 - Project name, version  
 - Required dependencies  
