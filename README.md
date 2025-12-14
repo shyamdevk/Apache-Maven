@@ -399,5 +399,246 @@ Maven uses this file to completely automate your project's build process.
 
 ---
 
+# 🧪 Maven CI/CD Lab using GitHub Actions
+
+## 📌 Objective
+This lab demonstrates how to:
+- Create a Maven project directly on GitHub
+- Add Java source code and test cases
+- Configure GitHub Actions for CI/CD
+- Automatically build and test the project on every push
+
+👉 This method uses **only GitHub Web UI**  
+👉 No local system setup required  
+👉 Ideal for beginners and freshers
+
+---
+
+## 🛠 Tools Used
+- GitHub
+- Maven
+- Java 17
+- GitHub Actions
+- JUnit 5
+
+---
+
+## 📁 Project Structure
+
+```
+
+maven-lab/
+├── pom.xml
+├── src/
+│   ├── main/java/com/example/App.java
+│   └── test/java/com/example/AppTest.java
+└── .github/workflows/maven.yml
+
+```
+
+---
+
+## 🚀 Step 1: Create GitHub Repository
+
+1. Go to **GitHub**
+2. Click **New Repository**
+3. Repository name: `maven-lab`
+4. ✅ Select **Add README.md**
+5. Click **Create repository**
+
+---
+
+## 🚀 Step 2: Create `pom.xml`
+
+1. Open your repository
+2. Click **Add file → Create new file**
+3. File name:
+```
+
+pom.xml
+
+````
+
+4. Paste the following content:
+
+```xml
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>maven-actions-demo</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+````
+
+5. Click **Commit new file**
+
+---
+
+## 🚀 Step 3: Create `App.java`
+
+1. Click **Add file → Create new file**
+2. File name:
+
+```
+src/main/java/com/example/App.java
+```
+
+> GitHub automatically creates all folders.
+
+3. Paste:
+
+```java
+package com.example;
+
+public class App {
+    public static void main(String[] args) {
+        System.out.println("Hello from Maven GitHub Actions Lab!");
+    }
+}
+```
+
+4. Click **Commit new file**
+
+---
+
+## 🚀 Step 4: Create `AppTest.java`
+
+1. Click **Add file → Create new file**
+2. File name:
+
+```
+src/test/java/com/example/AppTest.java
+```
+
+3. Paste:
+
+```java
+package com.example;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+public class AppTest {
+
+    @Test
+    public void testOutput() {
+        assertEquals("Hello from Maven GitHub Actions Lab!", getMessage());
+    }
+
+    private String getMessage() {
+        return "Hello from Maven GitHub Actions Lab!";
+    }
+}
+```
+
+4. Click **Commit new file**
+
+---
+
+## 🚀 Step 5: Create GitHub Actions Workflow
+
+1. Click **Add file → Create new file**
+2. File name:
+
+```
+.github/workflows/maven.yml
+```
+
+3. Paste:
+
+```yaml
+name: Maven CI
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version: 17
+
+    - name: Build
+      run: mvn package
+
+    - name: Test
+      run: mvn test
+```
+
+4. Click **Commit new file**
+
+---
+
+## 📊 Step 6: View CI/CD Pipeline Output
+
+1. Go to **Actions** tab in your repository
+2. Click the latest workflow run
+3. Verify:
+
+   * Build step passed
+   * Test step passed
+   * Green check mark ✅
+
+---
+
+## 🧠 Explanation (Simple Words)
+
+* GitHub detects the workflow file
+* Creates a virtual Linux machine
+* Installs Java and Maven
+* Runs:
+
+  ```
+  mvn package
+  mvn test
+  ```
+* Shows results in Actions tab
+
+This is **Continuous Integration (CI)**.
+
+---
+
+## ✅ Result
+
+✔ Maven project built successfully
+✔ Unit tests executed
+✔ CI/CD pipeline completed
+
+---
+
+## 🎯 Conclusion
+
+This lab demonstrates a simple and effective way to implement CI/CD for a Java Maven project using GitHub Actions without any local setup. It is suitable for beginners and freshers learning DevOps fundamentals.
+
+---
 
 
